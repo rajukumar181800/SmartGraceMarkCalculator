@@ -61,7 +61,7 @@ return true;
 		<div class="row">
 			<div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 				<div class="logo margin-top-30">
-				<a href="../index.html"><h2>SGMC | faculty Registration</h2></a>
+				<a href="../index.html"><h2>ASAP | user Registration</h2></a>
 				</div>
 				<!-- start: REGISTER BOX -->
 				<div class="box-register">
@@ -74,13 +74,13 @@ return true;
 								Enter your personal details below:
 							</p>
 							<div class="form-group">
-								<input type="text" class="form-control" name="full_name" id="fn" placeholder="Full Name" required>
+								<input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" name="state" id="st" placeholder="State" required>
+								<input type="text" class="form-control" name="state" placeholder="State" required>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" name="city" id="cts" placeholder="City" required>
+								<input type="text" class="form-control" name="city" placeholder="City" required>
 							</div>
 							<div class="form-group">
 								<label class="block">
@@ -103,18 +103,18 @@ return true;
 							<div class="form-group">
 								<span class="input-icon">
 									<input type="email" class="form-control" name="email" id="email" onBlur="userAvailability()"  placeholder="Email" required>
-									<i class="fa fa-envelope"></i> </span>
+									<em class="fa fa-envelope"></em> </span>
 									 <span id="user-availability-status1" style="font-size:12px;"></span>
 							</div>
 							<div class="form-group">
 								<span class="input-icon">
 									<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-									<i class="fa fa-lock"></i> </span>
+									<em class="fa fa-lock"></em> </span>
 							</div>
 							<div class="form-group">
 								<span class="input-icon">
 									<input type="password" class="form-control"  id="password_again" name="password_again" placeholder="Password Again" required>
-									<i class="fa fa-lock"></i> </span>
+									<em class="fa fa-lock"></em> </span>
 							</div>
 							<div class="form-group">
 								<div class="checkbox clip-check check-primary">
@@ -132,15 +132,15 @@ return true;
 									</a>
 								</p>
 								<button type="submit" class="btn btn-primary pull-right" id="submit" name="submit">
-									Submit <i class="fa fa-arrow-circle-right"></i>
+									Submit <em class="fa fa-arrow-circle-right"></em>
 								</button>
 							</div>
 						</fieldset>
 					</form>
 
-					<!-- <div class="copyright">
+					<div class="copyright">
 						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> ASAP</span>. <span>All rights reserved</span>
-					</div> -->
+					</div>
 
 				</div>
 

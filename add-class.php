@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(0);
+
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
@@ -13,16 +13,14 @@ $branch=$_POST['branch'];
 $class=$_POST['class'];
 $course=$_POST['course'];
 $facultyId=$_SESSION['id'];
-#$no_of_workers=$_POST['no_of_workers'];
-#$appdate=$_POST['appdate'];
-#$time=$_POST['apptime'];
+
 $facultystatus=1;
-#$engstatus=1;
+
 $query=mysqli_query($con,"insert into addclass(facultytype,year,branch,course,class,facultyId,facultyStatus) values ('$btype','$year','$branch','$course','$class','$facultyId','$facultystatus')");
   if($query)
   {
 	
-	#header('location:dashboard.php');
+	
 	echo "<script>alert('successfull');</script>";
 	
   }

@@ -2,6 +2,8 @@
 session_start();
 error_reporting(0);
 include("include/config.php");
+Login='login';
+Errormsg='errmg';
 if(isset($_POST['submit']))
 {
 $ret=mysqli_query($con,"SELECT * FROM users WHERE RollNo='".$_POST['rollno']."' and password='".$_POST['password']."'");
@@ -9,13 +11,13 @@ $num=mysqli_fetch_array($ret);
 if($num>0)
 {
 $extra="dashboard.php";//mention your home page here
-$_SESSION['login']=$_POST['rollno'];
+$_SESSION[Login]=$_POST['rollno'];
 $_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
 // For stroing log if user login successfull
-$log=mysqli_query($con,"insert into userlog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$uip','$status')");
+$log=mysqli_query($con,"insert into userlog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION[Login]."','$uip','$status')");
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
 exit();
@@ -23,11 +25,10 @@ exit();
 else
 {
 	// For stroing log if user login unsuccessfull
-$_SESSION['login']=$_POST['username'];	
+$_SESSION[Login]=$_POST['username'];	
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
-//mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
-$_SESSION['errmsg']="Invalid rollno or password";
+$_SESSION[Errormsg]="Invalid rollno or password";
 $extra="login.php";
 $host  = $_SERVER['HTTP_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
@@ -74,17 +75,17 @@ exit();
 							</legend>
 							<p>
 								Please enter your roll number and password to log in.<br />
-								<span style="color:red;"><?php echo $_SESSION['errmsg']; ?><?php echo $_SESSION['errmsg']="";?></span>
+								<span style="color:red;"><?php echo $_SESSION[Errormsg]; ?><?php echo $_SESSION[Errormsg]="";?></span>
 							</p>
 							<div class="form-group">
 								<span class="input-icon">
 									<input type="text" class="form-control" name="rollno" placeholder="rollno">
-									<i class="fa fa-user"></i> </span>
+									<em class="fa fa-user"></em> </span>
 							</div>
 							<div class="form-group form-actions">
 								<span class="input-icon">
 									<input type="password" class="form-control password" name="password" placeholder="Password">
-									<i class="fa fa-lock"></i>
+									<em class="fa fa-lock"></em>
 									 </span><a href="forgot-password.php">
 									Forgot Password ?
 								</a>
@@ -92,7 +93,7 @@ exit();
 							<div class="form-actions">
 								
 								<button type="submit" class="btn btn-primary pull-right" name="submit">
-									Login <i class="fa fa-arrow-circle-right"></i>
+									Login <em class="fa fa-arrow-circle-right"></em>
 								</button>
 							</div>
 							<div class="new-account">

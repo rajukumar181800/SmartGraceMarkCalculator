@@ -1,11 +1,11 @@
 <?php
 session_start();
-//error_reporting(0);
+
 include('include/config.php');
 include('include/checklogin.php');
 require_once('vendor/php-excel-reader/excel_reader2.php');
 require_once('vendor/SpreadsheetReader.php');
-$link = mysqli_connect("localhost", "root", "", "hms") or die($link);
+$link = mysqli_connect("localhost", "root", "abhi", "hms") or die($link);
 
 check_login();
 if(isset($_POST['import']))
@@ -54,20 +54,10 @@ if(isset($_POST['import']))
 						  if(isset($Row[5])) {
 							  $grade = mysqli_real_escape_string($link,$Row[5]);
 						  }
-
-						  $course = "";
-						  if(isset($Row[6])) {
-							  $course = mysqli_real_escape_string($link,$Row[6]);
-						  }
-
-						  $credits = "";
-						  if(isset($Row[7])) {
-							  $credits = mysqli_real_escape_string($link,$Row[7]);
-						  }
 						  
 						  
-						  if (!empty($r_no) || !empty($student_name) || !empty($marks) || !empty($at_percent) || !empty($at_marks) || !empty($grade) || !empty($course) || !empty($credits)) {
-							  $query = "insert into student_marks(r_no,student_name,marks,at_percent,at_marks,grade,course,credits) values('".$r_no."','".$student_name."','".$marks."','".$at_percent."','".$at_marks."','".$grade."','".$course."','".$credits."')";
+						  if (!empty($r_no) || !empty($student_name) || !empty($marks) || !empty($at_percent) || !empty($at_marks) || !empty($grade)) {
+							  $query = "insert into student_marks(r_no,student_name,marks,at_percent,at_marks,grade) values('".$r_no."','".$student_name."','".$marks."','".$at_percent."','".$at_marks."','".$grade."')";
 							  $result = mysqli_query($link, $query);
 						  
 							  if (! empty($result)) {
@@ -142,9 +132,7 @@ if(isset($_POST['import']))
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
-						<!-- <button type="submit" name="submit" class="btn btn-o btn-primary">
-															submit
-														</button> -->
+						
 														<div class="outer-container">
         <form action="" method="post"
             name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data">

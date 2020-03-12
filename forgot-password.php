@@ -66,20 +66,20 @@ echo "<script>window.location.href ='forgot-password.php'</script>";
 							<div class="form-group form-actions">
 								<span class="input-icon">
 									<input type="text" class="form-control" name="fullname" placeholder="Registred Full Name">
-									<i class="fa fa-lock"></i>
+									<em class="fa fa-lock"></em>
 									 </span>
 							</div>
 
 							<div class="form-group">
 								<span class="input-icon">
 									<input type="email" class="form-control" name="email" placeholder="Registred Email">
-									<i class="fa fa-user"></i> </span>
+									<em class="fa fa-user"></em> </span>
 							</div>
 
 							<div class="form-actions">
 								
 								<button type="submit" class="btn btn-primary pull-right" name="submit">
-									Reset <i class="fa fa-arrow-circle-right"></i>
+									Reset <em class="fa fa-arrow-circle-right"></em>
 								</button>
 							</div>
 							<div class="new-account">

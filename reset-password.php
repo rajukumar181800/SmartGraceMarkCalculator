@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(0);
+
 include("include/config.php");
 // Code for updating Password
 if(isset($_POST['change']))
@@ -75,21 +75,21 @@ return true;
 <div class="form-group">
 <span class="input-icon">
 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-<i class="fa fa-lock"></i> </span>
+<em class="fa fa-lock"></em> </span>
 </div>
 	
 
 <div class="form-group">
 <span class="input-icon">
 <input type="password" class="form-control"  id="password_again" name="password_again" placeholder="Password Again" required>
-<i class="fa fa-lock"></i> </span>
+<em class="fa fa-lock"></em> </span>
 </div>
 							
 
 							<div class="form-actions">
 								
 								<button type="submit" class="btn btn-primary pull-right" name="change">
-									Change <i class="fa fa-arrow-circle-right"></i>
+									Change <em class="fa fa-arrow-circle-right"></em>
 								</button>
 							</div>
 							<div class="new-account">

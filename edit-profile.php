@@ -1,21 +1,22 @@
 <?php
 session_start();
-//error_reporting(0);
+
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+Gender='gender';
 if(isset($_POST['submit']))
 {
 	$fname=$_POST['fname'];
 $state=$_POST['state'];
 $city=$_POST['city'];
-$gender=$_POST['gender'];
+$gender=$_POST[Gender];
 
 $sql=mysqli_query($con,"Update users set fullName='$fname',state='$state',city='$city',gender='$gender' where id='".$_SESSION['id']."'");
 if($sql)
 {
 $msg="Your Profile updated Successfully";
-#header('location:dashboard.php');
+
 
 }
 
@@ -95,9 +96,9 @@ while($data=mysqli_fetch_array($sql))
 {
 ?>
 <h4><?php echo htmlentities($data['fullName']);?>'s Profile</h4>
-<p><b>Profile Reg. Date: </b><?php echo htmlentities($data['regDate']);?></p>
+<p><strong>Profile Reg. Date: </strong><?php echo htmlentities($data['regDate']);?></p>
 <?php if($data['updationDate']){?>
-<p><b>Profile Last Updation Date: </b><?php echo htmlentities($data['updationDate']);?></p>
+<p><strong>Profile Last Updation Date: </strong><?php echo htmlentities($data['updationDate']);?></p>
 <?php } ?>
 <hr />													<form role="form" name="edit" method="post">
 													
@@ -129,7 +130,7 @@ while($data=mysqli_fetch_array($sql))
 															</label>
 
 <select name="gender" class="form-control" required="required" >
-<option value="<?php echo htmlentities($data['gender']);?>"><?php echo htmlentities($data['gender']);?></option>
+<option value="<?php echo htmlentities($data[Gender]);?>"><?php echo htmlentities($data[Gender]);?></option>
 <option value="male">Male</option>	
 <option value="female">Female</option>	
 <option value="other">Other</option>	
